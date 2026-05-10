@@ -4,7 +4,7 @@
 |----------|-----------|---------|
 | React component files | `PascalCase.tsx` | `Login.tsx`, `Register.tsx`, `CallBack.tsx` |
 | Service files | `camelCase.service.ts` | `login.service.ts`, `callback.service.ts` |
-| Type files | `kebab-case.type.ts` | `account.type.ts`, `unique-detail.type.ts` |
+| Type files | `camelCase.type.ts` | `account.type.ts`, `uniqueDetail.type.ts` |
 | DTO files | `camelCase.dto.ts` | `common.dto.ts` |
 | Utility/constant files | `camelCase.ts` | `api.ts`, `util.ts`, `constant.ts` |
 | Unit test files | `camelCase.unit.test.tsx` | `login.unit.test.tsx` |
