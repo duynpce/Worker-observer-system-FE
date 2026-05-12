@@ -4,6 +4,9 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../src/config/userQuery.config';
 import ToastProvider from './config/ToastProvider.config';
 import Home from './feat/home/Home';
+import CheckAttendanceScanner from './feat/worker/component/CheckAttendanceScanner';
+import CheckOutScanner from './feat/worker/component/CheckOutScanner';
+import EnterQuantityReportSection from './feat/worker/component/EnterQuantityReportSection';
 
 function App() {
 
@@ -12,6 +15,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/check-attendance" element={<CheckAttendanceScanner />} />
+          <Route path="/check-out" element={<CheckOutScanner />} />
+          <Route path="/enter-quantity-report" element={<EnterQuantityReportSection />} />
         </Routes>
         <ToastProvider />
       </BrowserRouter>
