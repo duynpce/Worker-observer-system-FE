@@ -2,8 +2,10 @@ import { api } from "../../config/axios/api";
 import type { AttendanceTypeValue, DailyAttendanceFilter, GetDailyAttendanceDto } from "./dailyAttendance.type";
 
 export const checkAttendance = async (attendanceType: AttendanceTypeValue) => {
-    await api.post<void>("/v1/daily-attendance/check_attendance", null, {
-        params: { attendanceType },
+        await api.post("/v1/daily-attendance/check-attendance", null, {
+        params: {
+            "attendanceType": attendanceType,
+        },
         toastMessageWhenSuccess: true,
     });
 };

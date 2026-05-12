@@ -1,10 +1,20 @@
 import type { LocalTime } from "./attendancePolicy.type";
 
-export const AttendanceType = ["START_TIME", "END_TIME"] as const;
-export const AttendanceStatus = ["ON_TIME", "ABSENT", "LATE", "EARLY_LEAVE", "ON_TIME_LEAVE"] as const;
+export const AttendanceType = {
+    START_TIME: "START_TIME",
+    END_TIME: "END_TIME"
+} as const;
 
-export type AttendanceTypeValue = (typeof AttendanceType)[number];
-export type AttendanceStatusValue = (typeof AttendanceStatus)[number];
+export const AttendanceStatus = {
+    ON_TIME: "ON_TIME",
+    ABSENT: "ABSENT",
+    LATE: "LATE",
+    EARLY_LEAVE: "EARLY_LEAVE",
+    ON_TIME_LEAVE: "ON_TIME_LEAVE"
+} as const;
+
+export type AttendanceTypeValue = (typeof AttendanceType)[keyof typeof AttendanceType];
+export type AttendanceStatusValue = (typeof AttendanceStatus)[keyof typeof AttendanceStatus];
 
 export interface DailyAttendanceFilter {
     attendanceDate: string;
