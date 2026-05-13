@@ -1,4 +1,4 @@
-    worker-observer-sysem
+# worker-observer-sysem
 introduction :
     
     - this project was created for a technical challenge, done by only one person
@@ -73,6 +73,7 @@ how to run the project :
     
     - backend :
         - create your own application.yaml or just rename the application-ci to application.yaml
+        - make sure your username, password and url for the database are correct in the application.yaml
         - navigate to the backend directory and run the following command to start the Spring Boot application:
             - on linux/mac : `./mvnw spring-boot:run` (not quite sure, because I have only tested it on windows)
             - on windows : `./mvnw.cmd spring-boot:run`
