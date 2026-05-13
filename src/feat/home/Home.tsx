@@ -30,6 +30,13 @@ const Home = () => {
                     >
                         Enter Quantity Report
                     </Link>
+
+                    <Link
+                        to="/update-item-station"
+                        className="w-full text-center bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-xl transition-colors"
+                    >
+                        Update Item Station
+                    </Link>
                 </div>
 
                 <p className="text-xs text-gray-400">Scan a worker's QR code to log their entry, exit time, or quantity report.</p>

@@ -2,6 +2,9 @@ import { useRef, useState } from "react";
 import { useLogin } from "../../auth/useAuth";
 import { useCreateQuantityReport } from "../../quanity_report/useQuantityReport";
 import { toast } from "react-toastify";
+import { CreateQuantityReportSchema, type CreateQuantityReportRequest } from "../../quanity_report/quantityReport.type";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useFormCustom } from "../../../shared/hook/useFormCustom";
 
 export const useEnterQuantityReport = () => {
     const [scannedUser, setScannedUser] = useState<{ username: string; password: string } | null>(null);
@@ -11,6 +14,9 @@ export const useEnterQuantityReport = () => {
 
     const loginMutation = useLogin();
     const createReportMutation = useCreateQuantityReport();
+    const { register, handleSmartSubmit, reset } = useFormCustom<CreateQuantityReportRequest>({
+      resolver: zodResolver(CreateQuantityReportSchema),
+  });
 
     const handleScan = async (decodedText: string) => {
         if (isProcessing || scannedUser) return;
@@ -37,18 +43,23 @@ export const useEnterQuantityReport = () => {
         } catch (error: unknown) {
             const message = (error as { response?: { data?: { message?: string } } })?.response?.data?.message;
             toast.error(message ?? "Authentication failed. Please try again.");
-        } finally {
             setIsProcessing(false);
         }
     };
 
     const handleSubmit = async (quantity: number) => {
-        await createReportMutation.mutateAsync({ quantity });
+        try{
+            await createReportMutation.mutateAsync({ quantity });
+        }
+        finally {
         // Clear scanned user → QRScanner remounts fresh for the next worker
         setScannedUser(null);
+        setIsProcessing(false);
+        }
     };
 
     const cancel = () => {
+        setIsProcessing(false);
         setScannedUser(null);
     };
 
@@ -59,5 +70,8 @@ export const useEnterQuantityReport = () => {
         handleScan,
         handleSubmit,
         cancel,
+        register,
+        handleSmartSubmit,
+        reset,
     };
 };

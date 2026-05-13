@@ -10,6 +10,7 @@ declare module 'axios' {
     get<T >(url: string, config?: AxiosRequestConfig): Promise<ResponseDto<T>>;
     post<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ResponseDto<T>>;
     put<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ResponseDto<T>>;
+    patch<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ResponseDto<T>>;
     delete<T>(url: string, config?: AxiosRequestConfig): Promise<ResponseDto<T>>;
   }
 }

@@ -12,6 +12,9 @@ export const Role = {
     FLOOR_MANAGER: "FLOOR_MANAGER"
 } as const;
 
+export type Station = typeof Station[keyof typeof Station];
+export type Role = typeof Role[keyof typeof Role];
+
 export const CreateAccountSchema = z.object({
     name: z.string().trim().min(1, "Name is required"),
     email: z.email("Invalid email"),

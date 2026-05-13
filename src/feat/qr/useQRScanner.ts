@@ -36,6 +36,7 @@ export const useQRScanner = ({ elementId, onScanSuccess, onScanError }: UseQRSca
         scanner.render(
             (decodedText) => {
                 onScanSuccessRef.current(decodedText);
+                scanner.clear(); // Clear scanner after successful scan to prevent multiple scans of the same code
             },
             (error) => {
                 onScanErrorRef.current?.(error);

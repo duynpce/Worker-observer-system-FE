@@ -1,18 +1,13 @@
 import { Link } from "react-router-dom";
-import { zodResolver } from "@hookform/resolvers/zod";
 import QRScanner from "../../qr/QRScanner";
 import Button from "../../../shared/component/Button";
 import InputWithLabel from "../../../shared/component/InputWithLabel";
-import { useFormCustom } from "../../../shared/hook/useFormCustom";
-import { CreateQuantityReportSchema, type CreateQuantityReportRequest } from "../../quanity_report/quantityReport.type";
+import { type CreateQuantityReportRequest } from "../../quanity_report/quantityReport.type";
 import { useEnterQuantityReport } from "../hooks/useEnterQuantityReport";
 
 const EnterQuantityReportSection = () => {
-  const { scannedUser, isProcessing, isSubmitting, handleScan, handleSubmit, cancel } = useEnterQuantityReport();
+  const { scannedUser, isProcessing, isSubmitting, handleScan, handleSubmit, cancel, register, handleSmartSubmit, reset } = useEnterQuantityReport();
 
-  const { register, handleSmartSubmit, reset } = useFormCustom<CreateQuantityReportRequest>({
-      resolver: zodResolver(CreateQuantityReportSchema),
-  });
 
   const onSubmit = async (data: CreateQuantityReportRequest) => {
       await handleSubmit(data.quantity);
