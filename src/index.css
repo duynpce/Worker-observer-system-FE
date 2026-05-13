@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+button {
+ on:hover {
+      background-color: aqua ;
+ }
+}
