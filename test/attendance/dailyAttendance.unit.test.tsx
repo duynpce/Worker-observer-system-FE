@@ -17,13 +17,13 @@ const mockPost = api.post as Mock;
 const mockGet = api.get as Mock;
 
 describe("dailyAttendanceService unit", () => {
-    test("checkAttendance should call /v1/daily-attendance/check_attendance with correct params", async () => {
+    test("checkAttendance should call /v1/daily-attendance/check-attendance with correct params", async () => {
         mockPost.mockResolvedValue({ data: null });
 
         await checkAttendance("START_TIME");
 
         expect(mockPost).toHaveBeenCalledWith(
-            "/v1/daily-attendance/check_attendance",
+            "/v1/daily-attendance/check-attendance",
             null,
             {
                 params: { attendanceType: "START_TIME" },

@@ -43,7 +43,7 @@ describe("dailyAttendance integration", () => {
         const toastSuccessSpy = vi.spyOn(toast, "success").mockImplementation(() => "mock-toast-id");
 
         server.use(
-            http.post(`${ROOT_API_URL}/v1/daily-attendance/check_attendance`, () => {
+            http.post(`${ROOT_API_URL}/v1/daily-attendance/check-attendance`, () => {
                 return new Response(
                     JSON.stringify({ success: true, message: "attendance checked successfully", data: null }),
                     { status: 200 }
@@ -64,7 +64,7 @@ describe("dailyAttendance integration", () => {
         const toastErrorSpy = vi.spyOn(toast, "error").mockImplementation(() => "mock-toast-id");
 
         server.use(
-            http.post(`${ROOT_API_URL}/v1/daily-attendance/check_attendance`, () => {
+            http.post(`${ROOT_API_URL}/v1/daily-attendance/check-attendance`, () => {
                 return new Response(
                     JSON.stringify({ success: false, message: "attendance already checked" }),
                     { status: 400 }
