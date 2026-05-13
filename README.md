@@ -1,4 +1,4 @@
-# worker-observer-sysem-be
+    worker-observer-sysem
 introduction :
     
     - this project was created for a technical challenge, done by only one person
@@ -46,7 +46,7 @@ Demo:
     - using QR to track the flow of items through the stations
         - Link : https://www.youtube.com/watch?v=ARuQLcPc5gI
 
-project details:
+project's details:
     
     - Workflow : 
         - backend :
@@ -72,6 +72,7 @@ how to run the project :
     after cloning the project, you can run the backend and frontend separately by following the instructions below:
     
     - backend :
+        - create your own application.yaml or just rename the application-ci to application.yaml
         - navigate to the backend directory and run the following command to start the Spring Boot application:
             - on linux/mac : `./mvnw spring-boot:run` (not quite sure, because I have only tested it on windows)
             - on windows : `./mvnw.cmd spring-boot:run`
